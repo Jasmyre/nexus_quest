@@ -1,575 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us - NexusQuest</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          primary: '#6d28d9',
-          secondary: '#10b981',
-          accent: '#f59e0b',
-          dark: '#0f172a',
-          light: '#f8fafc',
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Fateshaper</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6d28d9",
+              secondary: "#10b981",
+              accent: "#f59e0b",
+              dark: "#0f172a",
+              light: "#f8fafc",
+            },
+            fontFamily: {
+              sans: ["Rajdhani", "sans-serif"],
+              display: ["Orbitron", "sans-serif"],
+            },
+          },
         },
-        fontFamily: {
-          sans: ['Rajdhani', 'sans-serif'],
-          display: ['Orbitron', 'sans-serif'],
-        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #0f172a;
+        background-image: radial-gradient(
+            circle at 25% 25%,
+            rgba(109, 40, 217, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 75% 75%,
+            rgba(16, 185, 129, 0.1) 0%,
+            transparent 50%
+          );
       }
-    }
-  }
-</script>
-<style>
-  body {
-    background-color: #0f172a;
-    background-image: 
-      radial-gradient(circle at 25% 25%, rgba(109, 40, 217, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 50%);
-  }
-</style>
-</head>
-<body class="text-light min-h-screen flex flex-col">
-<!-- Header/Navigation -->
-<header class="bg-dark/80 backdrop-blur-sm sticky top-0 z-50 border-b border-primary/20">
-  <div class="container mx-auto px-4">
-    <nav class="flex justify-between items-center py-4">
-      <a href="index.html" class="flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-        </svg>
-        <span class="text-2xl font-display font-bold text-white">NexusQuest</span>
-      </a>
-      
-      <!-- Mobile menu button -->
-      <button id="menu-toggle" class="md:hidden text-white focus:outline-none">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-      
-      <!-- Desktop Navigation -->
-      <ul class="hidden md:flex space-x-8 font-medium">
-        <li><a href="index.html" class="text-white hover:text-primary transition-colors">Home</a></li>
-        <li><a href="information.html" class="text-white hover:text-primary transition-colors">Information</a></li>
-        <li><a href="game.html" class="text-white hover:text-primary transition-colors">Game</a></li>
-        <li><a href="gallery.html" class="text-white hover:text-primary transition-colors">Gallery</a></li>
-        <li><a href="contact.html" class="text-primary border-b-2 border-primary py-1">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-  
-  <!-- Mobile Navigation -->
-  <div id="mobile-menu" class="hidden md:hidden bg-dark/95 backdrop-blur-md">
-    <ul class="flex flex-col items-center py-4 space-y-4 font-medium">
-      <li><a href="index.html" class="text-white hover:text-primary transition-colors">Home</a></li>
-      <li><a href="information.html" class="text-white hover:text-primary transition-colors">Information</a></li>
-      <li><a href="game.html" class="text-white hover:text-primary transition-colors">Game</a></li>
-      <li><a href="gallery.html" class="text-white hover:text-primary transition-colors">Gallery</a></li>
-      <li><a href="contact.html" class="text-primary">Contact</a></li>
-    </ul>
-  </div>
-</header>
-
-<!-- Hero Section -->
-<section class="py-16 md:py-24 relative">
-  <div class="absolute inset-0 z-0 opacity-20">
-    <div class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-30"></div>
-    <img src="https://loremflickr.com/200/200?random=3" alt="" class="w-full h-full object-cover" />
-  </div>
-  <div class="container mx-auto px-4 relative z-10">
-    <div class="max-w-4xl mx-auto text-center">
-      <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
-        <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Meet Our Team</span>
-      </h1>
-      <p class="text-xl md:text-2xl mb-8 text-gray-300">Get to know the talented individuals behind NexusQuest and discover how to reach us.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Team Members Section -->
-<section class="py-16 bg-dark/50">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-display font-bold mb-12 text-center">
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">The NexusQuest Team</span>
-    </h2>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <!-- Team Member 1 -->
-      <div class="bg-dark/80 backdrop-blur-sm rounded-xl border border-primary/20 overflow-hidden group hover:border-primary/50 transition-all">
-        <div class="relative h-64">
-          <img src="https://loremflickr.com/200/200?random=3" alt="Alex Chen" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-1">Alex Chen</h3>
-          <p class="text-primary font-medium mb-3">Lead Game Designer</p>
-          <p class="text-gray-300 mb-4">Responsible for overall game design, mechanics, and player experience. Alex ensures that NexusQuest delivers an immersive and engaging gameplay experience.</p>
-          <div class="flex space-x-3">
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect width="4" height="12" x="2" y="9"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Team Member 2 -->
-      <div class="bg-dark/80 backdrop-blur-sm rounded-xl border border-primary/20 overflow-hidden group hover:border-primary/50 transition-all">
-        <div class="relative h-64">
-          <img src="https://loremflickr.com/200/200?random=3" alt="Sophia Rodriguez" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-1">Sophia Rodriguez</h3>
-          <p class="text-primary font-medium mb-3">Art Director</p>
-          <p class="text-gray-300 mb-4">Oversees all visual aspects of NexusQuest, from character design to environment art. Sophia's creative vision brings the world of Aetheria to life.</p>
-          <div class="flex space-x-3">
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect width="4" height="12" x="2" y="9"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Team Member 3 -->
-      <div class="bg-dark/80 backdrop-blur-sm rounded-xl border border-primary/20 overflow-hidden group hover:border-primary/50 transition-all">
-        <div class="relative h-64">
-          <img src="https://loremflickr.com/200/200?random=3" alt="Marcus Johnson" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-1">Marcus Johnson</h3>
-          <p class="text-primary font-medium mb-3">Lead Developer</p>
-          <p class="text-gray-300 mb-4">Leads the programming team and oversees technical implementation. Marcus ensures that NexusQuest runs smoothly across all platforms.</p>
-          <div class="flex space-x-3">
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect width="4" height="12" x="2" y="9"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Team Member 4 -->
-      <div class="bg-dark/80 backdrop-blur-sm rounded-xl border border-primary/20 overflow-hidden group hover:border-primary/50 transition-all">
-        <div class="relative h-64">
-          <img src="https://loremflickr.com/200/200?random=3" alt="Aisha Patel" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-1">Aisha Patel</h3>
-          <p class="text-primary font-medium mb-3">Narrative Designer</p>
-          <p class="text-gray-300 mb-4">Crafts the story, lore, and character backgrounds for NexusQuest. Aisha's storytelling creates an immersive narrative experience for players.</p>
-          <div class="flex space-x-3">
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect width="4" height="12" x="2" y="9"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Team Member 5 -->
-      <div class="bg-dark/80 backdrop-blur-sm rounded-xl border border-primary/20 overflow-hidden group hover:border-primary/50 transition-all">
-        <div class="relative h-64">
-          <img src="https://loremflickr.com/200/200?random=3" alt="David Kim" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-1">David Kim</h3>
-          <p class="text-primary font-medium mb-3">Audio Director</p>
-          <p class="text-gray-300 mb-4">Creates the soundscape of NexusQuest, from epic battle themes to ambient environmental sounds. David's audio design enhances the player's immersion.</p>
-          <div class="flex space-x-3">
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect width="4" height="12" x="2" y="9"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Team Member 6 -->
-      <div class="bg-dark/80 backdrop-blur-sm rounded-xl border border-primary/20 overflow-hidden group hover:border-primary/50 transition-all">
-        <div class="relative h-64">
-          <img src="https://loremflickr.com/200/200?random=3" alt="Emma Wilson" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
-          <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold mb-1">Emma Wilson</h3>
-          <p class="text-primary font-medium mb-3">Community Manager</p>
-          <p class="text-gray-300 mb-4">Manages player relations, social media, and community events. Emma ensures that player feedback is heard and incorporated into future updates.</p>
-          <div class="flex space-x-3">
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                <rect width="4" height="12" x="2" y="9"></rect>
-                <circle cx="4" cy="4" r="2"></circle>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-              </svg>
-            </a>
-            <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Contact Form Section -->
-<section class="py-16">
-  <div class="container mx-auto px-4">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <!-- Contact Form -->
-        <div>
-          <h2 class="text-3xl font-display font-bold mb-6">
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Get In Touch</span>
-          </h2>
-          <p class="text-gray-300 mb-8">Have questions, feedback, or just want to say hello? Fill out the form below and we'll get back to you as soon as possible.</p>
-          
-          <form class="space-y-6">
-            <div>
-              <label for="name" class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
-              <input type="text" id="name" name="name" class="w-full px-4 py-3 rounded-lg bg-dark border border-primary/30 focus:border-primary focus:outline-none text-white" required>
-            </div>
-            
-            <div>
-              <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-              <input type="email" id="email" name="email" class="w-full px-4 py-3 rounded-lg bg-dark border border-primary/30 focus:border-primary focus:outline-none text-white" required>
-            </div>
-            
-            <div>
-              <label for="subject" class="block text-sm font-medium text-gray-300 mb-1">Subject</label>
-              <input type="text" id="subject" name="subject" class="w-full px-4 py-3 rounded-lg bg-dark border border-primary/30 focus:border-primary focus:outline-none text-white" required>
-            </div>
-            
-            <div>
-              <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Your Message</label>
-              <textarea id="message" name="message" rows="5" class="w-full px-4 py-3 rounded-lg bg-dark border border-primary/30 focus:border-primary focus:outline-none text-white" required></textarea>
-            </div>
-            
-            <button type="submit" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-lg transition-all">
-              Send Message
-            </button>
-          </form>
-        </div>
-        
-        <!-- Contact Information -->
-        <div>
-          <h2 class="text-3xl font-display font-bold mb-6">
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Contact Information</span>
-          </h2>
-          <p class="text-gray-300 mb-8">You can also reach us through the following channels. We're always happy to hear from our players and community.</p>
-          
-          <div class="space-y-6">
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1">Phone</h3>
-                <p class="text-gray-300">+1 (555) 123-4567</p>
-                <p class="text-gray-300">Monday - Friday, 9am - 5pm PST</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                  <polyline points="22,6 12,13 2,6"></polyline>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1">Email</h3>
-                <p class="text-gray-300">support@nexusquest.com</p>
-                <p class="text-gray-300">info@nexusquest.com</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                  <circle cx="12" cy="10" r="3"></circle>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1">Office Location</h3>
-                <p class="text-gray-300">123 Gaming Street</p>
-                <p class="text-gray-300">Digital City, CA 94103</p>
-                <p class="text-gray-300">United States</p>
-              </div>
-            </div>
-            
-            <div class="flex items-start">
-              <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="9" cy="7" r="4"></circle>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-              </div>
-              <div>
-                <h3 class="text-xl font-bold mb-1">Social Media</h3>
-                <div class="flex space-x-4 mt-2">
-                  <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                    </svg>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
-                    </svg>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                      <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                    </svg>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
-                      <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
-                    </svg>
-                  </a>
-                  <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                      <rect width="4" height="12" x="2" y="9"></rect>
-                      <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Map Section -->
-<section class="py-16 bg-dark/50">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-display font-bold mb-8 text-center">
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Our Location</span>
-    </h2>
-    
-    <div class="max-w-5xl mx-auto">
-      <div class="aspect-[16/9] bg-dark/80 rounded-xl overflow-hidden">
-        <img src="https://loremflickr.com/200/200?random=3" alt="Office Location Map" class="w-full h-full object-cover" />
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-dark/80 backdrop-blur-sm border-t border-primary/20 mt-auto">
-  <div class="container mx-auto px-4 py-12">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-      <!-- Logo and Description -->
-      <div class="md:col-span-1">
-        <a href="index.html" class="flex items-center gap-2 mb-4">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-          </svg>
-          <span class="text-2xl font-display font-bold text-white">NexusQuest</span>
-        </a>
-        <p class="text-gray-400 mb-4">Experience the ultimate adventure in the world of NexusQuest, where your choices shape your destiny.</p>
-        <div class="flex space-x-4">
-          <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+    </style>
+  </head>
+  <body class="text-light min-h-screen flex flex-col">
+    <header
+      class="bg-dark/80 backdrop-blur-sm sticky top-0 z-50 border-b border-primary/20"
+    >
+      <div class="container mx-auto px-4">
+        <nav class="flex justify-between items-center py-4">
+          <a href="index.html" class="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-8 w-8 text-primary"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              ></polygon>
             </svg>
+            <span class="text-2xl font-display font-bold text-white"
+              >Fateshaper</span
+            >
           </a>
-          <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+
+          <button
+            id="menu-toggle"
+            class="md:hidden text-white focus:outline-none"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
             </svg>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-            </svg>
-          </a>
-          <a href="#" class="text-gray-400 hover:text-primary transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-              <rect width="4" height="12" x="2" y="9"></rect>
-              <circle cx="4" cy="4" r="2"></circle>
-            </svg>
-          </a>
-        </div>
+          </button>
+
+          <ul class="hidden md:flex space-x-8 font-medium">
+            <li>
+              <a
+                href="index.html"
+                class="text-white hover:text-primary transition-colors"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="information.html"
+                class="text-white hover:text-primary transition-colors"
+                >Information</a
+              >
+            </li>
+            <li>
+              <a
+                href="game.html"
+                class="text-white hover:text-primary transition-colors"
+                >Game</a
+              >
+            </li>
+            <li>
+              <a
+                href="gallery.html"
+                class="text-white hover:text-primary transition-colors"
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                href="contact.html"
+                class="text-primary border-b-2 border-primary py-1"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
       </div>
-      
-      <!-- Quick Links -->
-      <div class="md:col-span-1">
-        <h3 class="text-xl font-bold mb-4">Quick Links</h3>
-        <ul class="space-y-2">
-          <li><a href="index.html" class="text-gray-400 hover:text-primary transition-colors">Home</a></li>
-          <li><a href="information.html" class="text-gray-400 hover:text-primary transition-colors">Information</a></li>
-          <li><a href="game.html" class="text-gray-400 hover:text-primary transition-colors">Game</a></li>
-          <li><a href="gallery.html" class="text-gray-400 hover:text-primary transition-colors">Gallery</a></li>
-          <li><a href="contact.html" class="text-gray-400 hover:text-primary transition-colors">Contact</a></li>
+
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-dark/95 backdrop-blur-md"
+      >
+        <ul class="flex flex-col items-center py-4 space-y-4 font-medium">
+          <li>
+            <a
+              href="index.html"
+              class="text-white hover:text-primary transition-colors"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="information.html"
+              class="text-white hover:text-primary transition-colors"
+              >Information</a
+            >
+          </li>
+          <li>
+            <a
+              href="game.html"
+              class="text-white hover:text-primary transition-colors"
+              >Game</a
+            >
+          </li>
+          <li>
+            <a
+              href="gallery.html"
+              class="text-white hover:text-primary transition-colors"
+              >Gallery</a
+            >
+          </li>
+          <li><a href="contact.html" class="text-primary">Contact</a></li>
         </ul>
       </div>
-      
-      <!-- Game Features -->
-      <div class="md:col-span-1">
-        <h3 class="text-xl font-bold mb-4">Game Features</h3>
-        <ul class="space-y-2">
-          <li><a href="information.html" class="text-gray-400 hover:text-primary transition-colors">Character Classes</a></li>
-          <li><a href="information.html" class="text-gray-400 hover:text-primary transition-colors">World Map</a></li>
-          <li><a href="information.html" class="text-gray-400 hover:text-primary transition-colors">Combat System</a></li>
-          <li><a href="information.html" class="text-gray-400 hover:text-primary transition-colors">Multiplayer Modes</a></li>
-          <li><a href="information.html" class="text-gray-400 hover:text-primary transition-colors">Achievements</a></li>
-        </ul>
-      </div>
-      
-      <!-- Contact Info -->
-      <div class="md:col-span-1">
-        <h3 class="text-xl font-bold mb-4">Contact Us</h3>
-        <ul class="space-y-2">
-          <li class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-            </svg>
-            <span class="text-gray-400">+1 (555) 123-4567</span>
-          </li>
-          <li class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
-            </svg>
-            <span class="text-gray-400">support@nexusquest.com</span>
-          </li>
-          <li class="flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <span class="text-gray-400">123 Gaming Street, Digital City</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="border-t border-primary/20 mt-8 pt-8 text-center">
-      <p class="text-gray-400">&copy; 2025 NexusQuest. All rights reserved.</p>
-    </div>
-  </div>
-</footer>
+    </header>
 
-<!-- Mobile Menu Script -->
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const menuToggle = document.getElementById('menu-toggle');
-    const mobileMenu = document.getElementById('mobile-menu');
-    
-    menuToggle.addEventListener('click', function() {
-      mobileMenu.classList.toggle('hidden');
-    });
-  });
-</script>
-</body>
+    <section class="py-16 md:py-24 relative">
+      <div class="absolute inset-0 z-0 opacity-20">
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-primary to-secondary opacity-30"
+        ></div>
+        <img
+          src="https://loremflickr.com/200/200?random=3"
+          alt=""
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+          <h1 class="text-4xl md:text-6xl font-display font-bold mb-6">
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+              >Meet Our Team</span
+            >
+          </h1>
+          <p class="text-xl md:text-2xl mb-8 text-gray-300">
+            Get to know the talented individuals behind Fateshaper and discover
+            how to reach us.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-16 bg-dark/50">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl md:text-4xl font-display font-bold mb-12 text-center"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary"
+            >The Fateshaper Team</span
+          >
+        </h2>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto"
+        >
+          <div
+            class="bg-dark/80 backdrop-blur-sm rounded-xl border border-primary/20 overflow-hidden group hover:border-primary/50 transition-all"
+          >
+            <div class="relative h-64">
+              <div class="w-full h-full overflow-hidden">
+                <img
+                  src="https://loremflickr.com/200/200?random=3"
+                  alt="Marcus Johnson"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"
+              ></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-1">Jasmyre Andrei M. Lanuza</h3>
+              <p class="text-primary font-medium mb-3">Lead Game Programmer</p>
+              <p class="text-gray-300 mb-4">
+                
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-dark/80 backdrop-blur-sm rounded-xl border border-primary/20 overflow-hidden group hover:border-primary/50 transition-all"
+          >
+            <div class="relative h-64">
+              <div class="w-full h-full overflow-hidden">
+                <img
+                  src="https://loremflickr.com/200/200?random=3"
+                  alt="Marcus Johnson"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"
+              ></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-1">Jarell B. Berongoy</h3>
+              <p class="text-primary font-medium mb-3">Designer</p>
+              <p class="text-gray-300 mb-4">
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-dark/80 backdrop-blur-sm rounded-xl border border-primary/20 overflow-hidden group hover:border-primary/50 transition-all"
+          >
+            <div class="relative h-64">
+              <div class="w-full h-full overflow-hidden">
+                <img
+                  src="https://loremflickr.com/200/200?random=3"
+                  alt="Marcus Johnson"
+                  class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"
+              ></div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-1">Jamille Cadugo</h3>
+              <p class="text-primary font-medium mb-3">Designer</p>
+              <p class="text-gray-300 mb-4">
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="flex justify-center items-center min-h-[100px]">
+      <p class="text-center">&copy; Fateshaper 2024. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        menuToggle.addEventListener("click", function () {
+          mobileMenu.classList.toggle("hidden");
+        });
+      });
+    </script>
+  </body>
 </html>
-
