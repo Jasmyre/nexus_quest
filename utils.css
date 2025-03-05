@@ -1,0 +1,14 @@
+:root {
+	--max-w-xl: 1280px;
+	--max-w-lg: 1024px;
+    --max-w-sm: 720px;
+
+	--primary: #c62e2e;
+	--secondary: #f95454;
+	--tertiary: #77cdff;
+	--light: #feeeef;
+	--dark: #0f0f0f;
+
+	--vh-primary: 92.5vh;
+	--vh-secondary: 7.5vh;
+}
