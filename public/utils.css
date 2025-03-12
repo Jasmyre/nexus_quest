@@ -1,7 +1,7 @@
 :root {
 	--max-w-xl: 1280px;
 	--max-w-lg: 1024px;
-    --max-w-sm: 720px;
+	--max-w-sm: 720px;
 
 	--primary: #c62e2e;
 	--secondary: #f95454;
@@ -11,4 +11,30 @@
 
 	--vh-primary: 92.5vh;
 	--vh-secondary: 7.5vh;
+}
+
+.toss {
+	animation: toss 1.5s ease;
+}
+
+@keyframes toss {
+	0% {
+		transform: translateY(0px) scale(1);
+	}
+
+	33.33% {
+		transform: translateY(-20px) scale(0.75);
+	}
+
+	50% {
+		transform: translateY(0px) scale(0.80);
+	}
+
+	66.66% {
+		transform: translateY(-20px) scale(0.75);
+	}
+
+	100% {
+		transform: translateY(0px) scale(0.95);
+	}
 }
