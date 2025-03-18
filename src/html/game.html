@@ -363,6 +363,13 @@
 											onclick=""
 											value="Skip"
 										/>
+										<input
+											type="button"
+											class="button hover:bg-[var(--secondary)] cursor-pointer button flex-1 bg-transparent border text-[var(--primary)] hover:text-[var(--light)] border-[var(--primary)] transition-all duration-[0.25s] ease-[ease] px-6 py-3 rounded-lg"
+											id="heal"
+											onclick=""
+											value="Heal"
+										/>
 									</div>
 								</div>
 								<div
@@ -390,7 +397,7 @@
 										</div>
 									</div>
 
-                  <div
+									<div
 										class="w-[90%] h-min absolute bottom-[5%] flex gap-2 flex-col items-start"
 									>
 										<div class="w-full text-right">
@@ -412,9 +419,9 @@
 												></div>
 											</div>
 										</div>
-										<div class="w-full">
+										<div class="w-full text-right">
 											<span
-												class="text-red-600 text-right font-semibold text-2xl"
+												class="text-red-600 font-semibold text-2xl"
 												>Fatigue</span
 											>
 											<div
@@ -432,7 +439,7 @@
 											</div>
 										</div>
 									</div>
-                  
+
 									<img
 										src="/v1rock.svg"
 										alt=""
@@ -451,201 +458,368 @@
 						</div>
 
 						<div class="p-4 md:p-6 border-t border-primary/20">
-							<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-								<div class="bg-dark/50 p-4 rounded-lg">
-									<h3 class="text-lg font-bold mb-3">
-										Increase Stats
-									</h3>
-									<div class="space-y-2">
-										<label
-											class="flex items-center space-x-2 cursor-pointer"
-										>
-											<input
-												type="radio"
-												name="gameMode"
-												class="form-radio text-primary"
-												checked
-											/>
-											<span>Strength</span>
-										</label>
-										<label
-											class="flex items-center space-x-2 cursor-pointer"
-										>
-											<input
-												type="radio"
-												name="gameMode"
-												class="form-radio text-primary"
-											/>
-											<span>Luck</span>
-										</label>
-										<label
-											class="flex items-center space-x-2 cursor-pointer"
-										>
-											<input
-												type="radio"
-												name="gameMode"
-												class="form-radio text-primary"
-											/>
-											<span>Speed</span>
-										</label>
-										<br />
-										<button
-											class="bg-primary px-6 rounded py-1"
-										>
-											Confirm
-										</button>
+							<div class="grid grid-cols-2 md:grid-cols-1 gap-4">
+								<div
+									class="bg-dark/50 p-4 flex flex-col gap-4 rounded-lg"
+								>
+									<div id="player-upgrade-points">
+										Player 1 upgrade points: 0
 									</div>
-								</div>
-
-								<div class="bg-dark/50 p-4 rounded-lg">
-									<h3 class="text-lg font-bold mb-3">
-										Stats
-									</h3>
-									<div class="grid grid-cols-2 gap-2">
-										<div class="flex flex-col">
-											<div
-												class="flex items-center gap-4"
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												id="upgrade-strength"
 											>
-												<p class="font-medium">
-													Strength
-												</p>
-												<p
-													class="text-sm text-gray-400"
-												>
-													0
-												</p>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Strength
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="player-upgrade-strength-display"
+												></div>
 											</div>
-											<br />
-											<div
-												class="flex items-center gap-4"
+										</div>
+									</div>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												id="upgrade-precision"
 											>
-												<p class="font-medium">Luck</p>
-												<p
-													class="text-sm text-gray-400"
-												>
-													0
-												</p>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Precision
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="player-upgrade-precision-display"
+												></div>
 											</div>
-											<br />
-											<div
-												class="flex items-center gap-4"
+										</div>
+									</div>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												id="upgrade-crit"
 											>
-												<p class="font-medium">Speed</p>
-												<p
-													class="text-sm text-gray-400"
-												>
-													0
-												</p>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Crit
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="player-upgrade-crit-display"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												id="upgrade-speed"
+											>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Speed
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="player-upgrade-speed-display"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												id="upgrade-defense"
+											>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												defense
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="player-upgrade-defense-display"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												id="upgrade-healing"
+											>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Healing
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="player-upgrade-healing-display"
+												></div>
 											</div>
 										</div>
 									</div>
 								</div>
 
-								<div class="bg-dark/50 p-4 rounded-lg">
-									<h3 class="text-lg font-bold mb-3">
-										Scores
-									</h3>
-									<div class="flex items-center space-x-4">
-										<div>
-											<p class="font-medium">Player 1</p>
-											<p class="text-sm text-gray-400">
-												0
-											</p>
+								<div
+									class="bg-dark/50 p-4 flex flex-col gap-4 rounded-lg"
+								>
+									<div id="robot-upgrade-points">
+										Player 2 upgrade points: 0
+									</div>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="opacity-0 border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												disabled
+											>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Strength
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="robot-upgrade-strength-display"
+												></div>
+											</div>
 										</div>
 									</div>
-									<br />
-									<div class="flex items-center space-x-4">
-										<div>
-											<p class="font-medium">Player 2</p>
-											<p class="text-sm text-gray-400">
-												0
-											</p>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="opacity-0 border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												disabled
+											>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Precision
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="robot-upgrade-precision-display"
+												></div>
+											</div>
 										</div>
 									</div>
-								</div>
-
-								<div class="bg-dark/50 p-4 rounded-lg">
-									<h3 class="text-lg font-bold mb-3">
-										Quick Actions
-									</h3>
-									<div class="grid grid-cols-2 gap-2">
-										<button
-											class="bg-primary/20 hover:bg-primary/30 text-primary py-2 px-3 rounded transition-colors text-sm flex items-center justify-center"
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
 										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												class="h-4 w-4 mr-1"
-												viewBox="0 0 24 24"
-												fill="none"
-												stroke="currentColor"
-												stroke-width="2"
-												stroke-linecap="round"
-												stroke-linejoin="round"
+											<button
+												class="opacity-0 border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												disabled
 											>
-												<path
-													d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"
-												></path>
-												<circle
-													cx="12"
-													cy="7"
-													r="4"
-												></circle>
-											</svg>
-											Rock
-										</button>
-										<button
-											class="bg-primary/20 hover:bg-primary/30 text-primary py-2 px-3 rounded transition-colors text-sm flex items-center justify-center"
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Crit
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
 										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												class="h-4 w-4 mr-1"
-												viewBox="0 0 24 24"
-												fill="none"
-												stroke="currentColor"
-												stroke-width="2"
-												stroke-linecap="round"
-												stroke-linejoin="round"
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
 											>
-												<path d="M20 7h-9"></path>
-												<path d="M14 17H5"></path>
-												<circle
-													cx="17"
-													cy="17"
-													r="3"
-												></circle>
-												<circle
-													cx="7"
-													cy="7"
-													r="3"
-												></circle>
-											</svg>
-											Paper
-										</button>
-										<button
-											class="bg-primary/20 hover:bg-primary/30 text-primary py-2 px-3 rounded transition-colors text-sm flex items-center justify-center"
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="robot-upgrade-crit-display"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
 										>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												class="h-4 w-4 mr-1"
-												viewBox="0 0 24 24"
-												fill="none"
-												stroke="currentColor"
-												stroke-width="2"
-												stroke-linecap="round"
-												stroke-linejoin="round"
+											<button
+												class="opacity-0 border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												disabled
 											>
-												<path
-													d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"
-												></path>
-												<path
-													d="M17.64 15 22 10.64"
-												></path>
-												<path
-													d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"
-												></path>
-											</svg>
-											scissors
-										</button>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Speed
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="robot-upgrade-speed-display"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="opacity-0 border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												disabled
+											>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												defense
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="robot-upgrade-defense-display"
+												></div>
+											</div>
+										</div>
+									</div>
+									<div class="flex gap-8">
+										<div
+											class="flex justify-center items-center gap-4"
+										>
+											<button
+												class="opacity-0 border-gray-300 hover:border-red-400 border px-4 py-1 rounded-md text-gray-300 hover:text-red-400"
+												disabled
+											>
+												Upgrade
+											</button>
+											<span
+												class="min-w-[75px] text-left"
+											>
+												Healing
+											</span>
+										</div>
+										<div
+											class="flex flex-1 justify-center items-center"
+										>
+											<div
+												class="bg-gray-300 w-full h-min rounded border-gray-100"
+											>
+												<div
+													class="p-2 bg-blue-500 w-[50%] rounded"
+													id="robot-upgrade-healing-display"
+												></div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
