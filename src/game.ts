@@ -139,13 +139,13 @@ let robotHPLoss = 0;
 let playerStrength = 1;
 let robotStrength = 1;
 
-let playerPrecision = 0; 
+let playerPrecision = 0;
 let robotPrecision = 0;
 
-let playerCrit = 0; 
+let playerCrit = 0;
 let robotCrit = 0;
 
-let playerSpeed = 0; 
+let playerSpeed = 0;
 let robotSpeed = 0;
 
 let playerDefense = 0;
@@ -395,30 +395,55 @@ function calculateDamage(
 function upgradePlayerStat(stat: string): void {
 	if (playerUpgradePoints <= 0) {
 		console.log("No upgrade points available for player.");
+		alert("No upgrade points availabe")
 		return;
 	}
 	switch (stat) {
 		case "strength":
+			if (playerStrength === 10) {
+				alert("Player strength is max")
+				return undefined
+			};
 			playerStrength++;
 			console.log(`Player strength upgraded to ${playerStrength}`);
 			break;
 		case "precision":
+			if (playerPrecision === 10) {
+				alert("Player precision is max")
+				return undefined
+			};
 			playerPrecision++;
 			console.log(`Player precision upgraded to ${playerPrecision}`);
 			break;
 		case "crit":
+			if (playerCrit === 10) {
+				alert("Player crit is max")
+				return undefined
+			};
 			playerCrit++;
 			console.log(`Player crit upgraded to ${playerCrit}`);
 			break;
 		case "speed":
+			if (playerSpeed === 10) {
+				alert("Player speed is max")
+				return undefined
+			};
 			playerSpeed++;
 			console.log(`Player speed upgraded to ${playerSpeed}`);
 			break;
 		case "defense":
+			if (playerDefense === 10) {
+				alert("Player defense is max")
+				return undefined
+			};
 			playerDefense++;
 			console.log(`Player defense upgraded to ${playerDefense}`);
 			break;
 		case "healing":
+			if (playerHealing === 10) {
+				alert("Player healing is max")
+				return undefined
+			};
 			playerHealing++;
 			console.log(`Player healing upgraded to ${playerHealing}`);
 			break;
@@ -433,21 +458,45 @@ function upgradePlayerStat(stat: string): void {
 function upgradeRobotStat(stat: string): void {
 	switch (stat) {
 		case "strength":
+			if (robotStrength === 10) {
+				// alert("robot strength is max")
+				return undefined
+			};
 			robotStrength++;
 			break;
 		case "precision":
+			if (robotPrecision === 10) {
+				// alert("robot precision is max")
+				return undefined
+			};
 			robotPrecision++;
 			break;
 		case "crit":
+			if (robotCrit === 10) {
+				// alert("Player crit is max")
+				return undefined
+			};
 			robotCrit++;
 			break;
 		case "speed":
+			if (robotSpeed === 10) {
+				// alert("robot crit is max")
+				return undefined
+			};
 			robotSpeed++;
 			break;
 		case "defense":
+			if (robotDefense === 10) {
+				// alert("robot defense is max")
+				return undefined
+			};
 			robotDefense++;
 			break;
 		case "healing":
+			if (robotHealing === 10) {
+				// alert("robot healing is max")
+				return undefined
+			};
 			robotHealing++;
 			break;
 		default:
@@ -572,7 +621,7 @@ function processRound(playerAction: Action) {
 		) {
 			const playerMove = playerAction.split("-")[1];
 			playerHand.src = `/v1${playerMove}.svg`;
-			robotHand.src = "/v1rock.svg";
+			robotHand.src = "/skip.png";
 			console.log("Robot skipped!");
 			robotFatigue = Math.max(robotFatigue - 10, 0);
 			robotMomentum = Math.max(robotMomentum - 5, 0);
@@ -596,7 +645,7 @@ function processRound(playerAction: Action) {
 			playerHand.src = `/v1${playerMove}.svg`;
 			robotHand.src = "/heal.webp";
 			console.log("Robot heals!");
-			const baseHeal = 5;
+			const baseHeal = 2.5;
 			const healAmount = baseHeal + robotHealing * 5;
 			robotHPLoss = Math.max(robotHPLoss - healAmount, 0)
 			robotHealth = Math.min(robotHealth - robotHPLoss, 100);
@@ -617,7 +666,7 @@ function processRound(playerAction: Action) {
 			playerAction === "skip" &&
 			robotAction.startsWith("attack")
 		) {
-			playerHand.src = "/v1rock.svg";
+			playerHand.src = "/skip.png";
 			const robotMove = robotAction.split("-")[1];
 			robotHand.src = `/v1${robotMove}.svg`;
 			console.log("Player skipped!");
@@ -643,7 +692,7 @@ function processRound(playerAction: Action) {
 			const robotMove = robotAction.split("-")[1];
 			robotHand.src = `/v1${robotMove}.svg`;
 			console.log("Player heals!");
-			const baseHeal = 5;
+			const baseHeal = 2.5;
 			const healAmount = baseHeal + playerHealing * 5;
 			playerHPLoss = Math.max(playerHPLoss - healAmount, 0)
 			playerHealth = Math.min(playerHealth - playerHPLoss, 100);
@@ -672,7 +721,7 @@ function processRound(playerAction: Action) {
 			robotMomentum = Math.max(robotMomentum - 5, 0);
 		} else if (playerAction === "heal" && robotAction === "heal") {
 			console.log("Both heal.");
-			const baseHealPlayer = 5;
+			const baseHealPlayer = 2.5;
 			const healAmountPlayer = baseHealPlayer + playerHealing * 5;
 			playerHealth = Math.min(playerHealth + healAmountPlayer, 100);
 			playerMomentum = Math.max(playerMomentum - 5, 0);
@@ -695,7 +744,7 @@ function processRound(playerAction: Action) {
 			if (playerAction === "skip") {
 				playerFatigue = Math.max(playerFatigue - 10, 0);
 				playerMomentum = Math.max(playerMomentum - 5, 0);
-				const baseHealRobot = 5;
+				const baseHealRobot = 2.5;
 				const healAmountRobot = baseHealRobot + robotHealing * 5;
 				robotHealth = Math.min(robotHealth + healAmountRobot, 100);
 				robotMomentum = Math.max(robotMomentum - 5, 0);
@@ -706,7 +755,7 @@ function processRound(playerAction: Action) {
 			} else {
 				robotFatigue = Math.max(robotFatigue - 10, 0);
 				robotMomentum = Math.max(robotMomentum - 5, 0);
-				const baseHealPlayer = 5;
+				const baseHealPlayer = 2.5;
 				const healAmountPlayer = baseHealPlayer + playerHealing * 5;
 				playerHealth = Math.min(playerHealth + healAmountPlayer, 100);
 				playerMomentum = Math.max(playerMomentum - 5, 0);
