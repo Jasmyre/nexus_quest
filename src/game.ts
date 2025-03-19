@@ -1,6 +1,4 @@
-// =======================
-// UI Elements
-// =======================
+
 const buttons = document.querySelectorAll(
 	".button"
 ) as NodeListOf<HTMLButtonElement>;
@@ -14,7 +12,6 @@ const scissorsButton = document.getElementById("scissors") as HTMLButtonElement;
 const skipButton = document.getElementById("skip") as HTMLButtonElement;
 const healButton = document.getElementById("heal") as HTMLButtonElement;
 
-// upgrade buttons (assume these exist in your html)
 const upgradeStrengthButton = document.getElementById(
 	"upgrade-strength"
 ) as HTMLButtonElement;
@@ -34,7 +31,6 @@ const upgradeHealingButton = document.getElementById(
 	"upgrade-healing"
 ) as HTMLButtonElement;
 
-// displays
 const playerHPNumberDisplay = document.getElementById(
 	"player-hp-number"
 ) as HTMLElement;
@@ -78,7 +74,6 @@ const robotFatigueDisplay = document.getElementById(
 	"robot-fatigue-display"
 ) as HTMLElement;
 
-// upgrade points displays (assume these exist)
 const playerUpgradePointsDisplay = document.getElementById(
 	"player-upgrade-points"
 ) as HTMLElement;
@@ -111,7 +106,7 @@ const robotUpgradeStrengthDisplay = document.getElementById(
 const robotUpgradePrecisionDisplay = document.getElementById(
 	"robot-upgrade-precision-display"
 ) as HTMLElement;
-const robotUpgradeCriticalDisplay = document.getElementById(
+const robotUpgradeCritDisplay = document.getElementById(
 	"robot-upgrade-crit-display"
 ) as HTMLElement;
 const robotUpgradeSpeedDisplay = document.getElementById(
@@ -120,65 +115,55 @@ const robotUpgradeSpeedDisplay = document.getElementById(
 const robotUpgradeDefenseDisplay = document.getElementById(
 	"robot-upgrade-defense-display"
 ) as HTMLElement;
+const robotUpgradeHealingDisplay = document.getElementById(
+	"robot-upgrade-healing-display"
+) as HTMLElement;
 
-// =======================
-// Game Constants & Stats
-// =======================
+// TODO: gawin later
+// const CHOICES = [
+// 	{ name: "rock", src: "/v1rock.svg" },
+// 	{ name: "paper", src: "/v1paper.svg" },
+// 	{ name: "scissors", src: "/v1scissors.svg" },
+// ];
 
-const CHOICES = [
-	{ name: "rock", src: "/v1rock.svg" },
-	{ name: "paper", src: "/v1paper.svg" },
-	{ name: "scissors", src: "/v1scissors.svg" },
-];
-
-// Score & Round
-let playerScoreNum = 0;
-let robotScoreNum = 0;
+// TODO: gawin later
+// let playerScoreNum = 0;
+// let robotScoreNum = 0;
 let roundNum = 1;
 
-// Health
 let playerHealth = 100;
 let robotHealth = 100;
 let playerHPLoss = 0;
 let robotHPLoss = 0;
 
-// Offensive Stats (starting at 1 for balance; upgrades will add points)
 let playerStrength = 1;
 let robotStrength = 1;
 
-let playerPrecision = 10; // 1-10, 10 means always hit
-let robotPrecision = 10;
+let playerPrecision = 0; 
+let robotPrecision = 0;
 
-let playerCrit = 0; // crit chance out of 10
+let playerCrit = 0; 
 let robotCrit = 0;
 
-let playerSpeed = 0; // each point reduces incoming damage by 5%
+let playerSpeed = 0; 
 let robotSpeed = 0;
 
-// New Defense Stat (each point reduces damage by 3%)
 let playerDefense = 0;
 let robotDefense = 0;
 
-// Healing Stat
 let playerHealing = 0;
 let robotHealing = 0;
 
-// Fatigue & Momentum (range: 0-100)
 let playerFatigue = 0;
 let robotFatigue = 0;
 let playerMomentum = 0;
 let robotMomentum = 0;
 
-// Upgrade Points (earned 1 per round)
 let playerUpgradePoints = 0;
 let robotUpgradePoints = 0;
 
-const WIN_LIMIT = 99;
 const DELAY = 1400;
 
-// =======================
-// Helper Functions
-// =======================
 
 function logStats() {
 	console.log(
@@ -231,14 +216,14 @@ function updateRound() {
 	roundDisplay.textContent = `ROUND: ${roundNum}`;
 
 	playerHPNumberDisplay.textContent = String(playerHealth);
-	playerHPDisplay.style.width = `calc(100% - ${playerHPLoss}%)`;
+	playerHPDisplay.style.width = `calc(${playerHealth}%)`;
 	playerMomentumNumberDisplay.textContent = String(playerMomentum);
 	playerMomentumDisplay.style.width = `calc(${playerMomentum}%)`;
 	playerFatigueNumberDisplay.textContent = String(playerFatigue);
 	playerFatigueDisplay.style.width = `calc(${playerFatigue}%)`;
 
 	robotHPNumberDisplay.textContent = String(robotHealth);
-	robotHPDisplay.style.width = `calc(100% - ${robotHPLoss}%)`;
+	robotHPDisplay.style.width = `calc(${robotHealth}%)`;
 	robotMomentumNumberDisplay.textContent = String(robotMomentum);
 	robotMomentumDisplay.style.width = `calc(${robotMomentum}%)`;
 	robotFatigueNumberDisplay.textContent = String(robotFatigue);
@@ -257,6 +242,13 @@ function updateRound() {
 	playerUpgradeSpeedDisplay.style.width = `calc(0% + ${playerSpeed * 10}%)`;
 	playerUpgradeDefenseDisplay.style.width = `calc(0% + ${playerDefense * 10}%)`;
 	playerUpgradeHealingDisplay.style.width = `calc(0% + ${playerHealing * 10}%)`;
+
+	robotUpgradeStrengthDisplay.style.width = `calc(0% + ${robotStrength * 10}%)`;
+	robotUpgradePrecisionDisplay.style.width = `calc(0% + ${robotPrecision * 10}%)`;
+	robotUpgradeCritDisplay.style.width = `calc(0% + ${robotCrit * 10}%)`;
+	robotUpgradeSpeedDisplay.style.width = `calc(0% + ${robotSpeed * 10}%)`;
+	robotUpgradeDefenseDisplay.style.width = `calc(0% + ${robotDefense * 10}%)`;
+	robotUpgradeHealingDisplay.style.width = `calc(0% + ${robotHealing * 10}%)`;
 
 	logStats();
 }
@@ -283,7 +275,6 @@ function checkWin() {
 	}
 }
 
-// update fatigue & momentum after each round outcome
 function updateStatsAfterRound(result: "player" | "robot" | "tie") {
 	const fatigueIncrease = 5;
 	const tieFatigueIncrease = 3;
@@ -307,7 +298,6 @@ function updateStatsAfterRound(result: "player" | "robot" | "tie") {
 	robotMomentum = Math.min(Math.max(robotMomentum, 0), 100);
 }
 
-// logs detailed breakdown of damage calculations
 function logDamageCalculation(
 	effectiveStrength: number,
 	baseDamage: number,
@@ -336,7 +326,6 @@ function logDamageCalculation(
 	console.log("=====================================");
 }
 
-// calculate damage including defense
 function calculateDamage(
 	attackerStrength: number,
 	attackerPrecision: number,
@@ -403,11 +392,6 @@ function calculateDamage(
 	return finalDamage;
 }
 
-// =======================
-// Upgrade System
-// =======================
-
-// Player Upgrade Function
 function upgradePlayerStat(stat: string): void {
 	if (playerUpgradePoints <= 0) {
 		console.log("No upgrade points available for player.");
@@ -446,7 +430,6 @@ function upgradePlayerStat(stat: string): void {
 	updateRound();
 }
 
-// Robot Upgrade Function (upgrades randomly)
 function upgradeRobotStat(stat: string): void {
 	switch (stat) {
 		case "strength":
@@ -482,7 +465,6 @@ function robotAutoUpgrade(): void {
 		"defense",
 		"healing",
 	];
-	// spend all available robot upgrade points randomly
 	while (robotUpgradePoints > 0) {
 		const stat = stats[Math.floor(Math.random() * stats.length)];
 		upgradeRobotStat(stat);
@@ -494,10 +476,6 @@ function robotAutoUpgrade(): void {
 	}
 }
 
-// =======================
-// Action Processing
-// =======================
-
 type Action =
 	| "attack-rock"
 	| "attack-paper"
@@ -505,7 +483,6 @@ type Action =
 	| "skip"
 	| "heal";
 
-// get robot action (includes all options)
 function getRobotAction(): Action {
 	const actions: Action[] = [
 		"attack-rock",
@@ -532,14 +509,13 @@ function rpsWinner(
 	return "robot";
 }
 
-// Process a round given player's action; robot chooses action automatically.
 function processRound(playerAction: Action) {
+	console.clear();
 	const robotAction = getRobotAction();
 	console.log(
 		`Player Action: ${playerAction} | Robot Action: ${robotAction}`
 	);
 	disableButtons(true);
-	// toss animation
 	playerHand.src = "/v1rock.svg";
 	robotHand.src = "/v1rock.svg";
 	playerHand.classList.add("toss");
@@ -618,11 +594,12 @@ function processRound(playerAction: Action) {
 		) {
 			const playerMove = playerAction.split("-")[1];
 			playerHand.src = `/v1${playerMove}.svg`;
-			robotHand.src = "/v1rock.svg";
+			robotHand.src = "/heal.webp";
 			console.log("Robot heals!");
 			const baseHeal = 5;
 			const healAmount = baseHeal + robotHealing * 5;
-			robotHealth = Math.min(robotHealth + healAmount, 100);
+			robotHPLoss = Math.max(robotHPLoss - healAmount, 0)
+			robotHealth = Math.min(robotHealth - robotHPLoss, 100);
 			console.log(`Robot healed for ${healAmount} HP.`);
 			const damage = calculateDamage(
 				playerStrength,
@@ -662,13 +639,14 @@ function processRound(playerAction: Action) {
 			playerAction === "heal" &&
 			robotAction.startsWith("attack")
 		) {
-			playerHand.src = "/v1rock.svg";
+			playerHand.src = "/heal.webp";
 			const robotMove = robotAction.split("-")[1];
 			robotHand.src = `/v1${robotMove}.svg`;
 			console.log("Player heals!");
 			const baseHeal = 5;
 			const healAmount = baseHeal + playerHealing * 5;
-			playerHealth = Math.min(playerHealth + healAmount, 100);
+			playerHPLoss = Math.max(playerHPLoss - healAmount, 0)
+			playerHealth = Math.min(playerHealth - playerHPLoss, 100);
 			console.log(`Player healed for ${healAmount} HP.`);
 			playerMomentum = Math.max(playerMomentum - 5, 0);
 			playerFatigue += 5;
@@ -739,10 +717,8 @@ function processRound(playerAction: Action) {
 			}
 		}
 
-		// Award 1 upgrade point per round to both
 		playerUpgradePoints++;
 		robotUpgradePoints++;
-		// let robot automatically spend its upgrade points randomly
 		robotAutoUpgrade();
 
 		updateStatsAfterRound("tie");
